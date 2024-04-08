@@ -21,7 +21,6 @@ df_dir = "../../data/dataframes/"
 # Load fits
 suffix = 'target-aligned_V1-LO1'
 
-vox_fname = os.path.join(df_dir, "interstellar_voxelwise_data_%s.tsv" % suffix)
 vm_fname = os.path.join(df_dir, "interstellar_vonmises_fits_%s.tsv" % suffix)
 boot_name = os.path.join(df_dir, "parf_params_boots_%s.tsv" % suffix)
 norm_name = os.path.join(df_dir, "interstellar_norm.tsv")
@@ -31,19 +30,6 @@ vm_fits = pd.read_csv(vm_fname, sep = '\t', index_col = 0)
 boot_fits = pd.read_csv(boot_name, sep = '\t', index_col = 0)
 interstellar_norm = pd.read_csv(norm_name, sep = '\t', index_col = 0)
 
-
-
-
-
-# %% [markdown]
-# The voxel dataframe is a little over 6GB. It's then processed by norm_group().
-# The output of this is preloaded in interstellar_norm above. If you want to take a look at the voxelwise data, you can run the below block of code to load it in. This block of code also runs norm_group() on the voxelwise data to compute 'interstellar_norm'. See interstellar.py for 'norm_group' and other custom functions.
-
-# %%
-# Uncomment the below code if you want to load the voxel data set and run norm_group() on it.
-
-# voxels = pd.read_csv(vox_fname, sep = '\t', index_col = 0)
-# interstellar_norm = norm_group(voxels)
 
 # %% [markdown]
 # # 1. Figure 3a
